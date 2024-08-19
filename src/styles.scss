@@ -1,1 +1,23 @@
+@import "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css";
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #F8F9FD;
+  }
+}
+
+@layer components {
+  .side-text {
+    @apply text-sm leading-6 text-[#272525];
+  }
+  .gradient{
+    @apply bg-gradient-to-br from-[#14ADD6] to-[#384295];
+  }
+  .fill-gradient{
+  }
+}

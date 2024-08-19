@@ -1,0 +1,15 @@
+{
+  "title": "Je suis un titre en francais",
+  "lng": {
+    "french": "Francais",
+    "english": "Anglais"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "staff": "Employe",
+    "voucher": "Bon de commande",
+    "payment": "Paiement",
+    "memo": "Memo",
+    "maintenance": "Maintenance"
+  }
+}

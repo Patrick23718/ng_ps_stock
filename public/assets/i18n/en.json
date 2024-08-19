@@ -1,0 +1,15 @@
+{
+  "title": "I'm a title in english",
+  "lng": {
+    "french": "French",
+    "english": "English"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "staff": "Staff",
+    "voucher": "Payment Voucher",
+    "payment": "Payroll",
+    "memo": "Memo",
+    "maintenance": "Maintenance"
+  }
+}
