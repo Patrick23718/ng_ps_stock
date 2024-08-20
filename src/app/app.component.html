@@ -4,16 +4,60 @@
   <div class="mr-10">
     <ps-side-bar></ps-side-bar>
   </div>
-  <div class="col-span-4 pt-5">
+  <div class="col-span-4 pt-5 pr-5 space-y-5">
     <ps-header></ps-header>
-    <router-outlet></router-outlet>
+    <div class="grid grid-cols-4 gap-5 py-">
+      @for(card of cards; track card.icon){
+        <ps-card [value]="card"></ps-card>
+      }
 
-    <p class="font-extrabold text-5xl ">{{count$|async}}</p>
-    <div class="flex gap-5">
-      <button class="rounded-xl bg-amber-300 px-5 py-3 text-xl text-white" (click)="increment()">Increment</button>
-      <button class="rounded-xl bg-amber-300 px-5 py-3 text-xl text-white" (click)="decrement()">Decrement</button>
-      <button class="rounded-xl bg-amber-300 px-5 py-3 text-xl text-white" (click)="reset()">Reset</button>
     </div>
+
+
+<!--    Table component-->
+    <div class="w-full flex flex-col rounded-2xl bg-white p-5 gap-5">
+      <div class="flex justify-between ">
+        <p class="text-base font-semibold">Salary Defination</p>
+        <button class="gradient rounded-md px-5 py-2 text-xs text-white font-light">Create Salary Definition</button>
+      </div>
+      <div class="w-full">
+        <table class="table-auto w-full">
+          <thead>
+          <tr class="text-left">
+            <th>Song</th>
+            <th>Artist</th>
+            <th>Year</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+            <td>Malcolm Lockyer</td>
+            <td>1961</td>
+          </tr>
+          <tr>
+            <td>Witchy Woman</td>
+            <td>The Eagles</td>
+            <td>1972</td>
+          </tr>
+          <tr>
+            <td>Shining Star</td>
+            <td>Earth, Wind, and Fire</td>
+            <td>1975</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!--    <router-outlet></router-outlet>-->
+
+<!--    <p class="font-extrabold text-5xl ">{{count$|async}}</p>-->
+<!--    <div class="flex gap-5">-->
+<!--      <button class="rounded-xl bg-amber-300 px-5 py-3 text-xl text-white" (click)="decrement()">Decrement</button>-->
+<!--      <button class="rounded-xl bg-amber-300 px-5 py-3 text-xl text-white" (click)="reset()">Reset</button>-->
+<!--      <button class="rounded-xl bg-amber-300 px-5 py-3 text-xl text-white" (click)="increment()">Increment</button>-->
+<!--    </div>-->
 
   </div>
 </div>

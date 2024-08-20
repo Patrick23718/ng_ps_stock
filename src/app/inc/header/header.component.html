@@ -2,14 +2,14 @@
   <div class="flex flex-col">
     <div class="flex gap-2">
       <img src="./assets/icons/memo.svg" alt="" class="w-6 h-auto">
-      <p class="font-extrabold text-2xl">{{"sidebar.memo"|translate}}</p>
+      <p class="font-extrabold text-xl">{{"sidebar.memo"|translate}}</p>
     </div>
-    <p class="text-[#868686] font-light text-sm">Create and send memos to designated offices.</p>
+    <p class="text-[#868686] font-light text-xs">Create and send memos to designated offices.</p>
 
   </div>
   <div>
     <div>
-      <p>{{count$|async}}</p>
+<!--      <p>{{count$|async}}</p>-->
       <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
         <option value="en"><span class="fi fi-gb fis"></span>  {{ 'lng.english' | translate }}</option>
         <option value="fr"><span class="fi fi-fr"></span> {{ 'lng.french' | translate }}</option>

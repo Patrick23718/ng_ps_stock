@@ -8,6 +8,7 @@ import { provideTranslation } from './core/config/i18n/translate-loader.config';
 import {provideState, provideStore} from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import {counterReducer} from "./states/sideBar/SideBar.Reducer";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 // @ts-ignore
@@ -18,6 +19,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore(),
     provideEffects(),
-    provideState({name: 'counter', reducer: counterReducer}),
+    provideState({name: 'counter', reducer: counterReducer}), provideAnimationsAsync(),
 ]
 };
