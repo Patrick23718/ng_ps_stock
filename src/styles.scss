@@ -9,6 +9,12 @@
     font-family: 'Nunito', sans-serif;
     background: #F8F9FD;
   }
+  td {
+    @apply text-sm font-thin
+  }
+  th{
+    @apply text-sm font-thin font-semibold text-gray-600
+  }
 }
 
 @layer components {
