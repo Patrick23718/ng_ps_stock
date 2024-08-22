@@ -10,10 +10,13 @@
     background: #F8F9FD;
   }
   td {
-    @apply text-sm font-thin
+    @apply text-sm font-thin py-2 text-gray-600 text-sm
   }
   th{
-    @apply text-sm font-thin font-semibold text-gray-600
+    @apply text-sm font-thin font-semibold text-gray-600 py-2
+  }
+  tr {
+    @apply my-2 border-b
   }
 }
 
@@ -24,9 +27,22 @@
   .gradient{
     @apply bg-gradient-to-br from-[#14ADD6] to-[#384295];
   }
-  .fill-gradient{
+  .action{
+    @apply inline-block text-transparent bg-clip-text cursor-pointer;
+  }
+
+  .btn-page{
+    @apply w-8 border border-gray-400 rounded-lg aspect-square text-xs font-thin;
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

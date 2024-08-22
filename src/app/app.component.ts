@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -8,15 +8,18 @@ import {Store} from "@ngrx/store";
 import {AppState} from "./states/app.state";
 import {Observable} from "rxjs";
 import {selectCounter} from "./states/sideBar/SideBar.Selector";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, TitleCasePipe} from "@angular/common";
 import {decrement, increment, reset} from "./states/sideBar/SideBar.Actions";
 import {CardComponent, CardData} from "./inc/card/card.component";
+import {fakerFR} from "@faker-js/faker";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+// import {faker} from "@faker-js/faker";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, FormsModule, SideBarComponent, TranslateModule, HeaderComponent, AsyncPipe, CardComponent],
+  imports: [RouterOutlet, RouterLink, FormsModule, SideBarComponent, TranslateModule, HeaderComponent, AsyncPipe, CardComponent, TitleCasePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -24,6 +27,8 @@ export class AppComponent implements OnInit{
   title = 'stock';
   selectedLanguage = '';
   count$: Observable<number>;
+  tables = [];
+  readonly dialog = inject(MatDialog);
   cards: CardData[]= [
     {
       quantity: 250,
@@ -53,6 +58,33 @@ export class AppComponent implements OnInit{
       asc: null,
       subDescription: null
     }
+  ];
+
+  page = [
+    {
+      index: 1,
+      active: true,
+    },
+    {
+      index: 2,
+      active: false,
+    },
+    {
+      index: 3,
+      active: false,
+    },
+    {
+      index: 4,
+      active: false,
+    },
+    {
+      index: 5,
+      active: false,
+    },
+    {
+      index: 6,
+      active: false,
+    },
   ]
 
   constructor(private store: Store<AppState>, private translateService: TranslateService){
@@ -61,6 +93,26 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.selectedLanguage = localStorage.getItem('lang') || 'fr';
+    for (let i=0; i<10; i++){
+      // @ts-ignore
+      this.tables.push(i);
+    }
+  }
+
+  openDialog(): void {
+    // @ts-ignore
+    const dialogRef = this.dialog.open(HeaderComponent,
+      {
+        height: 400,
+        width: 400
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result !== undefined) {
+        // this.animal.set(result);
+      }
+    });
   }
 
   onLanguageChange() {
@@ -79,4 +131,13 @@ export class AppComponent implements OnInit{
   };
 
 
+  //protected readonly faker = faker;
+  protected readonly fakerFR = fakerFR;
+
+  changePage(index: number) {
+    for (let i=0; i<this.page.length; i++) {
+
+      this.page[i].active = index == i + 1;
+    }
+  }
 }
